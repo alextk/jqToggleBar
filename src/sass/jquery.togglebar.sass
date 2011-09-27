@@ -1,0 +1,64 @@
+@mixin round($radius)
+  -webkit-border-radius: #{$radius}
+  -moz-border-radius: #{$radius}
+  border-radius: #{$radius}
+
+@mixin text_shadow($shadow)
+  text-shadow: $shadow
+
+@mixin gradient($from, $to)
+  background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to)) /*Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, $from, $to) /* Chrome 10+, Saf5.1+ */
+  background-image: -moz-linear-gradient(top, $from, $to) /* FF3.6 */
+  background-image: -ms-linear-gradient(top, $from, $to) /* IE10 */
+  background-image: -o-linear-gradient(top, $from, $to) /* Opera 11.10+ */
+  background-image: linear-gradient(top, $from, $to)
+
+  //filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='$from', endColorstr='$to') /* for IE */
+  //background: -webkit-gradient(linear, left top, left bottom, from($from), to($to)) /* for webkit browsers */
+  //background: -moz-linear-gradient(top,  $from,  $to) /* for firefox 3.6+ */
+
+@mixin unselectable()
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -o-user-select: none
+  user-select: none
+
+span.togglebar
+  @include unselectable()
+  padding: 6px 0px
+  .bar_button
+    display: inline-block
+    text-align: center
+    padding: 6px 10px
+    font-weight: bold
+    border: 1px solid #CCC
+    background-color: #eee
+    color: #444
+    cursor: pointer
+    margin: 0px -3px
+    //@include text-shadow(0 1px 1px #f6f6f6)
+    @include gradient(#fdfdfd, #eee)
+    @include unselectable()
+    position: relative
+    z-index: 1
+    &.first
+      @include round(5px 0px 0px 5px)
+    &.last
+      @include round(0px 5px 5px 0px)
+    &:hover
+      border: 1px solid	#bbb
+      background:	#dadada
+      color: #101010
+      //@include text-shadow(0 1px 1px 	#fff)
+      @include gradient(#ededed, #dadada)
+    &.selected
+      border: 1px solid #155678
+      background: #4596ce
+      color: #fff
+      @include text-shadow(0 -1px 1px #145072)
+      text-decoration: none
+      @include gradient(#85bae4, #5393c5)
+      outline: none
+      z-index: 2

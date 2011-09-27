@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>dialog examples</title>
+  <!-- Include latest jQuery -->
+  <script type="text/javascript" src="../lib/jquery-1.6.2.js"></script>
+
+  <!--Include plugin css-->
+  <link rel="Stylesheet" media="screen" href="../dist/css/jquery.togglebar.css"/>
+
+  <!--Include plugin js code-->
+  <script type="text/javascript" src="../src/base.js"></script>
+  <script type="text/javascript" src="../src/togglebar.js"></script>
+
+  <!-- Include project source files -->
+  <!-- Include unit test files -->
+  <script type="text/javascript">
+
+    $(document).ready(function(){
+      $('div.panel.toggle .togglebar').toggleBar({});
+      $('div.panel.radio .togglebar').toggleBar({radio: true});
+
+      var logSelectionChanged = function(bar){
+        $('div.panel.events div.eventLog').append($('<div/>').html('selection changed for ' + bar.attr('class')));
+      };
+      $('div.panel.events .togglebar.radio').toggleBar({radio: true}).bind('selectionChanged', function(){
+        logSelectionChanged($(this));
+      });
+      $('div.panel.events .togglebar.toggle').toggleBar({}).bind('selectionChanged', function(){
+        logSelectionChanged($(this));
+      });
+    });
+
+  </script>
+
+  <style type="text/css">
+    body{
+      font-family: Arial, serif;
+      font-size: 12px;
+    }
+    h1, h2, h3, h4{
+      margin: 5px 0px
+    }
+
+    div.panel{
+      padding: 5px;
+      border: 1px solid #aaa;
+    }
+
+    div.panel div.scroll{
+      width: 300px;
+      height: 100px;
+      overflow: scroll;
+      border: 1px solid #aaa;
+    }
+
+    div.panel div.scroll div.content{
+      width: 1000px;
+      height: 1000px;
+    }
+
+    a.button2{
+      display: inline;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      white-space: nowrap;
+      text-align: center;
+      box-sizing: content-box;
+      border: 1px solid #6d6d6d;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+      font-family: Arial, serif;
+      cursor: pointer;
+      text-decoration: none;
+      padding: 5px 10px;
+    }
+
+    a.button2.green{
+      border: 1px solid #7B9D54;
+      background-color: #AECB68;
+    }
+    a.button2.gray{
+      border: 1px solid #6D6D6D;
+      background-color: #8F8F8F;
+    }
+
+  </style>
+</head>
+<body>
+
+<h1>togglebar examples</h1>
+
+<div class="panel toggle" style="text-align: center;">
+  <h3>Togglebar</h3>
+  <div>
+    <span>Bar1: </span>
+    <span class="togglebar">
+      <span class="bar_button">All</span>
+      <span class="bar_button">Coming</span>
+      <span class="bar_button">Not coming</span>
+      <span class="bar_button">Arrived</span>
+    </span>
+  </div>
+</div>
+
+<div class="panel radio" style="text-align: center;">
+  <h3>Radiobar</h3>
+  <div>
+    <span>Bar1: </span>
+    <span class="togglebar">
+      <span class="bar_button">All</span>
+      <span class="bar_button">Coming</span>
+      <span class="bar_button">Not coming</span>
+      <span class="bar_button">Arrived</span>
+    </span>
+  </div>
+</div>
+
+<div class="panel events">
+  <h3>Events</h3>
+  <div>
+    <span>Radio bar: </span>
+    <span class="togglebar radio">
+      <span class="bar_button">All</span>
+      <span class="bar_button">Coming</span>
+      <span class="bar_button">Not coming</span>
+      <span class="bar_button">Arrived</span>
+    </span>
+    <span style="padding: 0px 50px">&nbsp;</span>
+    <span>Toggle bar: </span>
+    <span class="togglebar toggle">
+      <span class="bar_button">All</span>
+      <span class="bar_button">Coming</span>
+      <span class="bar_button">Not coming</span>
+      <span class="bar_button">Arrived</span>
+    </span>
+
+  </div>
+  <div class="eventLog"></div>
+</div>
+
+<div style="direction: rtl">
+  <h2>RTL</h2>
+  <hr/>
+  <div class="panel" style="text-align: center;">
+    <h3>Positions</h3>
+    <a href="javascript:;" class="dialogPos" data-pos-my="left top" data-pos-at="left bottom">Bottom left</a>
+    |
+    <a href="javascript:;" class="dialogPos" data-pos-my="left bottom" data-pos-at="left top">Top left</a>
+    |
+    <a href="javascript:;" class="dialogPos" data-pos-my="right top" data-pos-at="right bottom">Bottom right</a>
+    |
+    <a href="javascript:;" class="dialogPos" data-pos-my="right bottom" data-pos-at="right top">Top right</a>
+  </div>
+</div>
+
+
+</body>
+</html>
