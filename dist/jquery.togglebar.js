@@ -2,14 +2,14 @@
 * jqToggleBar - jQuery plugin for creating styled radio and toggle bars
 *
 * Version: 0.0.1
-* Build: 14
+* Build: 18
 * Copyright 2011 Alex Tkachev
 *
 * Dual licensed under MIT or GPLv2 licenses
 *   http://en.wikipedia.org/wiki/MIT_License
 *   http://en.wikipedia.org/wiki/GNU_General_Public_License
 *
-* Date: 27/09/2011 15:38:30
+* Date: 30/09/2011 11:25:52
 */
 
 (function($) {
@@ -65,12 +65,36 @@
       return this.items;
     },
 
+    isSelected: function(item){
+      return item.hasClass('selected');
+    },
+
     hasSelected: function(){
       return this.getSelected().length > 0;
     },
 
     getSelected: function(){
       return this.getItems().filter('.selected');
+    },
+
+    /**
+     * Return hash of items selection. By default:
+     *  The key by will be the item's value
+     *  The value will be selection state (boolean)
+     *
+     * If key transformator function is given, the key will be what the function has returned.
+     * If value transformator function is given, the value will be what the function has returned.
+     */
+    getSelectionHash: function(options){
+      var self = this;
+
+      options = $.extend({}, {keyFunc: function(item){ return item.data('value'); }, valueFunc: function(item){ return self.isSelected(item) } }, options || {});
+      var hash = {};
+      this.items.each(function(){
+        var item = $(this);
+        hash[options.keyFunc(item)] = options.valueFunc(item);
+      });
+      return hash;
     },
 
     changeItemsSelection: function(func){

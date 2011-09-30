@@ -22,12 +22,36 @@
       return this.items;
     },
 
+    isSelected: function(item){
+      return item.hasClass('selected');
+    },
+
     hasSelected: function(){
       return this.getSelected().length > 0;
     },
 
     getSelected: function(){
       return this.getItems().filter('.selected');
+    },
+
+    /**
+     * Return hash of items selection. By default:
+     *  The key by will be the item's value
+     *  The value will be selection state (boolean)
+     *
+     * If key transformator function is given, the key will be what the function has returned.
+     * If value transformator function is given, the value will be what the function has returned.
+     */
+    getSelectionHash: function(options){
+      var self = this;
+
+      options = $.extend({}, {keyFunc: function(item){ return item.data('value'); }, valueFunc: function(item){ return self.isSelected(item) } }, options || {});
+      var hash = {};
+      this.items.each(function(){
+        var item = $(this);
+        hash[options.keyFunc(item)] = options.valueFunc(item);
+      });
+      return hash;
     },
 
     changeItemsSelection: function(func){
