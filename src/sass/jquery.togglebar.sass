@@ -62,3 +62,11 @@ span.togglebar
       @include gradient(#85bae4, #5393c5)
       outline: none
       z-index: 2
+
+
+  &.rtl
+    .bar_button
+      &.first
+        @include round(0px 5px 5px 0px)
+      &.last
+        @include round(5px 0px 0px 5px)

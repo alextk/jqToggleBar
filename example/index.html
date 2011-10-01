@@ -19,8 +19,8 @@
   <script type="text/javascript">
 
     $(document).ready(function(){
-      $('div.panel.toggle .togglebar').toggleBar({});
-      $('div.panel.radio .togglebar').toggleBar({radio: true});
+      $('div.panel div.toggle .togglebar').toggleBar({});
+      $('div.panel div.radio .togglebar').toggleBar({radio: true});
 
       var logSelectionChanged = function(bar){
         $('div.panel.events div.eventLog').append($('<div/>').html('selection changed for ' + bar.attr('class')));
@@ -94,10 +94,10 @@
 
 <h1>togglebar examples</h1>
 
-<div class="panel toggle" style="text-align: center;">
-  <h3>Togglebar</h3>
-  <div>
-    <span>Bar1: </span>
+<div class="panel" style="text-align: center;">
+  <h3>Bars</h3>
+  <div class="toggle">
+    <span>Toggle bar: </span>
     <span class="togglebar">
       <span class="bar_button" data-value="all">All</span>
       <span class="bar_button" data-value="coming">Coming</span>
@@ -105,12 +105,9 @@
       <span class="bar_button" data-value="arrived">Arrived</span>
     </span>
   </div>
-</div>
-
-<div class="panel radio" style="text-align: center;">
-  <h3>Radiobar</h3>
-  <div>
-    <span>Bar1: </span>
+  <br/>
+  <div class="radio">
+    <span>Radiobar: </span>
     <span class="togglebar">
       <span class="bar_button">All</span>
       <span class="bar_button">Coming</span>
@@ -147,14 +144,27 @@
   <h2>RTL</h2>
   <hr/>
   <div class="panel" style="text-align: center;">
-    <h3>Positions</h3>
-    <a href="javascript:;" class="dialogPos" data-pos-my="left top" data-pos-at="left bottom">Bottom left</a>
-    |
-    <a href="javascript:;" class="dialogPos" data-pos-my="left bottom" data-pos-at="left top">Top left</a>
-    |
-    <a href="javascript:;" class="dialogPos" data-pos-my="right top" data-pos-at="right bottom">Bottom right</a>
-    |
-    <a href="javascript:;" class="dialogPos" data-pos-my="right bottom" data-pos-at="right top">Top right</a>
+    <h3>Bars</h3>
+    <div class="toggle">
+      <span>Toggle: </span>
+      <span class="togglebar">
+        <span class="bar_button">All</span>
+        <span class="bar_button">Coming</span>
+        <span class="bar_button">Not coming</span>
+        <span class="bar_button">Arrived</span>
+      </span>
+    </div>
+    <br/>
+    <div class="radio">
+      <span>Radio: </span>
+      <span class="togglebar">
+        <span class="bar_button">All</span>
+        <span class="bar_button">Coming</span>
+        <span class="bar_button">Not coming</span>
+        <span class="bar_button">Arrived</span>
+      </span>
+    </div>
+
   </div>
 </div>
 

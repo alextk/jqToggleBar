@@ -76,7 +76,7 @@
     },
 
     _initClasses: function(){
-      this.el.addClass('togglebar');
+      this.el.addClass('togglebar').toggleClass('rtl', this.options.rtl);
       this.items.first().addClass('first');
       this.items.last().addClass('last');
     },
