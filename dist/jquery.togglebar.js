@@ -2,14 +2,14 @@
 * jqToggleBar - jQuery plugin for creating styled radio and toggle bars
 *
 * Version: 0.0.1
-* Build: 19
+* Build: 20
 * Copyright 2011 Alex Tkachev
 *
 * Dual licensed under MIT or GPLv2 licenses
 *   http://en.wikipedia.org/wiki/MIT_License
 *   http://en.wikipedia.org/wiki/GNU_General_Public_License
 *
-* Date: 01/10/2011 12:37:25
+* Date: 12/10/2011 13:21:12
 */
 
 (function($) {
@@ -75,6 +75,11 @@
 
     getSelected: function(){
       return this.getItems().filter('.selected');
+    },
+
+    getSelectedValue: function(){
+      var selected = this.getSelected();
+      return selected.first() ? selected.first().data('value') : null;
     },
 
     /**

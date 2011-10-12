@@ -34,6 +34,11 @@
       return this.getItems().filter('.selected');
     },
 
+    getSelectedValue: function(){
+      var selected = this.getSelected();
+      return selected.first() ? selected.first().data('value') : null;
+    },
+
     /**
      * Return hash of items selection. By default:
      *  The key by will be the item's value
