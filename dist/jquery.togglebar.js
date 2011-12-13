@@ -2,14 +2,14 @@
 * jqToggleBar - jQuery plugin for creating styled radio and toggle bars
 *
 * Version: 0.0.1
-* Build: 20
+* Build: 26
 * Copyright 2011 Alex Tkachev
 *
 * Dual licensed under MIT or GPLv2 licenses
 *   http://en.wikipedia.org/wiki/MIT_License
 *   http://en.wikipedia.org/wiki/GNU_General_Public_License
 *
-* Date: 12/10/2011 13:21:12
+* Date: 13 Dec 2011 21:11:08
 */
 
 (function($) {
@@ -41,7 +41,8 @@
     }
   };
 
-})(jQuery);(function($) {
+})(jQuery);
+(function($) {
 
   /**
    * Progress bar class api
