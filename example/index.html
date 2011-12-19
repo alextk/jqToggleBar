@@ -49,45 +49,6 @@
       border: 1px solid #aaa;
     }
 
-    div.panel div.scroll{
-      width: 300px;
-      height: 100px;
-      overflow: scroll;
-      border: 1px solid #aaa;
-    }
-
-    div.panel div.scroll div.content{
-      width: 1000px;
-      height: 1000px;
-    }
-
-    a.button2{
-      display: inline;
-      -webkit-border-radius: 5px;
-      -moz-border-radius: 5px;
-      border-radius: 5px;
-      white-space: nowrap;
-      text-align: center;
-      box-sizing: content-box;
-      border: 1px solid #6d6d6d;
-      color: white;
-      font-weight: bold;
-      font-size: 14px;
-      font-family: Arial, serif;
-      cursor: pointer;
-      text-decoration: none;
-      padding: 5px 10px;
-    }
-
-    a.button2.green{
-      border: 1px solid #7B9D54;
-      background-color: #AECB68;
-    }
-    a.button2.gray{
-      border: 1px solid #6D6D6D;
-      background-color: #8F8F8F;
-    }
-
   </style>
 </head>
 <body>
@@ -113,6 +74,33 @@
       <span class="bar_button">Coming</span>
       <span class="bar_button">Not coming</span>
       <span class="bar_button">Arrived</span>
+    </span>
+  </div>
+  <br/>
+  <div class="radio">
+    <span>Radiobar (inputs): </span>
+    <span class="togglebar hru1">
+      <input type="radio" name="r1" value="all" id="r1_all"/>
+      <label for="r1_all">All</label>
+      <input type="radio" name="r1" value="coming" id="r1_coming"/>
+      <label for="r1_coming">Coming</label>
+      <input type="radio" name="r1" value="not_coming" id="r1_not_coming" checked="checked"/>
+      <label for="r1_not_coming">Not coming</label>
+      <input type="radio" name="r1" value="arrived" id="r1_arrived"/>
+      <label for="r1_arrived">Arrived</label>
+    </span>
+  </div>
+  <div class="toggle">
+    <span>Togglebar (inputs): </span>
+    <span class="togglebar hru2">
+      <input type="checkbox" name="r1" value="all" id="c1_unknown"/>
+      <label for="c1_unknown">Unknown</label>
+      <input type="checkbox" name="r1" value="coming" id="c1_coming" checked="checked"/>
+      <label for="c1_coming">Coming</label>
+      <input type="checkbox" name="r1" value="not_coming" id="c1_not_coming"/>
+      <label for="c1_not_coming">Not coming</label>
+      <input type="checkbox" name="r1" value="arrived" id="c1_arrived" checked="checked"/>
+      <label for="c1_arrived">Arrived</label>
     </span>
   </div>
 </div>
