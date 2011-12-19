@@ -7,7 +7,7 @@ span.togglebar {
   padding: 6px 0px; }
   span.togglebar input {
     display: none; }
-  span.togglebar .bar_button, span.togglebar label {
+  span.togglebar label {
     display: inline-block;
     text-align: center;
     padding: 6px 10px;
@@ -30,15 +30,15 @@ span.togglebar {
     user-select: none;
     position: relative;
     z-index: 1; }
-    span.togglebar .bar_button.first, span.togglebar label.first {
+    span.togglebar label.first {
       -webkit-border-radius: 5px 0px 0px 5px;
       -moz-border-radius: 5px 0px 0px 5px;
       border-radius: 5px 0px 0px 5px; }
-    span.togglebar .bar_button.last, span.togglebar label.last {
+    span.togglebar label.last {
       -webkit-border-radius: 0px 5px 5px 0px;
       -moz-border-radius: 0px 5px 5px 0px;
       border-radius: 0px 5px 5px 0px; }
-    span.togglebar .bar_button:hover, span.togglebar label:hover {
+    span.togglebar label:hover {
       border: 1px solid #bbbbbb;
       background: #dadada;
       color: #101010;
@@ -48,7 +48,7 @@ span.togglebar {
       background-image: -ms-linear-gradient(top, #ededed, #dadada);
       background-image: -o-linear-gradient(top, #ededed, #dadada);
       background-image: linear-gradient(top, #ededed, #dadada); }
-    span.togglebar .bar_button.selected, span.togglebar label.selected {
+    span.togglebar label.selected {
       border: 1px solid #155678;
       background: #4596ce;
       color: white;
@@ -62,11 +62,11 @@ span.togglebar {
       background-image: linear-gradient(top, #85bae4, #5393c5);
       outline: none;
       z-index: 2; }
-  span.togglebar.rtl .bar_button.first {
+  span.togglebar.rtl label.first {
     -webkit-border-radius: 0px 5px 5px 0px;
     -moz-border-radius: 0px 5px 5px 0px;
     border-radius: 0px 5px 5px 0px; }
-  span.togglebar.rtl .bar_button.last {
+  span.togglebar.rtl label.last {
     -webkit-border-radius: 5px 0px 0px 5px;
     -moz-border-radius: 5px 0px 0px 5px;
     border-radius: 5px 0px 0px 5px; }

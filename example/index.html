@@ -19,8 +19,8 @@
   <script type="text/javascript">
 
     $(document).ready(function(){
-      $('div.panel div.toggle .togglebar').toggleBar({});
       $('div.panel div.radio .togglebar').toggleBar({radio: true});
+      $('div.panel div.toggle .togglebar').toggleBar({});
 
       var logSelectionChanged = function(bar){
         $('div.panel.events div.eventLog').append($('<div/>').html('selection changed for ' + bar.attr('class')));
@@ -57,49 +57,28 @@
 
 <div class="panel" style="text-align: center;">
   <h3>Bars</h3>
-  <div class="toggle">
-    <span>Toggle bar: </span>
-    <span class="togglebar">
-      <span class="bar_button" data-value="all">All</span>
-      <span class="bar_button" data-value="coming">Coming</span>
-      <span class="bar_button" data-value="not_coming">Not coming</span>
-      <span class="bar_button" data-value="arrived">Arrived</span>
-    </span>
-  </div>
-  <br/>
   <div class="radio">
     <span>Radiobar: </span>
     <span class="togglebar">
-      <span class="bar_button">All</span>
-      <span class="bar_button">Coming</span>
-      <span class="bar_button">Not coming</span>
-      <span class="bar_button">Arrived</span>
+      <input type="radio" name="r1" value="all" id="r1_all"/>
+      <label for="r1_all">All</label>
+      <input type="radio" name="r1" value="coming" id="r1_coming" checked="checked"/>
+      <label for="r1_coming">Coming</label>
+      <input type="radio" name="r1" value="not_coming" id="r1_not_coming"/>
+      <label for="r1_not_coming">Not coming</label>
     </span>
   </div>
   <br/>
-  <div class="radio">
-    <span>Radiobar (inputs): </span>
-    <span class="togglebar hru1">
-      <input type="radio" name="r1" value="all" id="r1_all"/>
-      <label for="r1_all">All</label>
-      <input type="radio" name="r1" value="coming" id="r1_coming"/>
-      <label for="r1_coming">Coming</label>
-      <input type="radio" name="r1" value="not_coming" id="r1_not_coming" checked="checked"/>
-      <label for="r1_not_coming">Not coming</label>
-      <input type="radio" name="r1" value="arrived" id="r1_arrived"/>
-      <label for="r1_arrived">Arrived</label>
-    </span>
-  </div>
   <div class="toggle">
-    <span>Togglebar (inputs): </span>
-    <span class="togglebar hru2">
-      <input type="checkbox" name="r1" value="all" id="c1_unknown"/>
+    <span>Togglebar: </span>
+    <span class="togglebar">
+      <input type="checkbox" name="c1" value="all" id="c1_unknown"/>
       <label for="c1_unknown">Unknown</label>
-      <input type="checkbox" name="r1" value="coming" id="c1_coming" checked="checked"/>
+      <input type="checkbox" name="c1" value="coming" id="c1_coming" checked="checked"/>
       <label for="c1_coming">Coming</label>
-      <input type="checkbox" name="r1" value="not_coming" id="c1_not_coming"/>
+      <input type="checkbox" name="c1" value="not_coming" id="c1_not_coming"/>
       <label for="c1_not_coming">Not coming</label>
-      <input type="checkbox" name="r1" value="arrived" id="c1_arrived" checked="checked"/>
+      <input type="checkbox" name="c1" value="arrived" id="c1_arrived" checked="checked"/>
       <label for="c1_arrived">Arrived</label>
     </span>
   </div>
@@ -109,20 +88,9 @@
   <h3>Events</h3>
   <div>
     <span>Radio bar: </span>
-    <span class="togglebar radio">
-      <span class="bar_button">All</span>
-      <span class="bar_button">Coming</span>
-      <span class="bar_button">Not coming</span>
-      <span class="bar_button">Arrived</span>
-    </span>
+
     <span style="padding: 0px 50px">&nbsp;</span>
     <span>Toggle bar: </span>
-    <span class="togglebar toggle">
-      <span class="bar_button">All</span>
-      <span class="bar_button">Coming</span>
-      <span class="bar_button">Not coming</span>
-      <span class="bar_button">Arrived</span>
-    </span>
 
   </div>
   <div class="eventLog"></div>
@@ -133,26 +101,31 @@
   <hr/>
   <div class="panel" style="text-align: center;">
     <h3>Bars</h3>
-    <div class="toggle">
-      <span>Toggle: </span>
+    <div class="radio">
+      <span>Radiobar: </span>
       <span class="togglebar">
-        <span class="bar_button">All</span>
-        <span class="bar_button">Coming</span>
-        <span class="bar_button">Not coming</span>
-        <span class="bar_button">Arrived</span>
+        <input type="radio" name="r1_rtl" value="all" id="r1_rtl_all"/>
+        <label for="r1_rtl_all">All</label>
+        <input type="radio" name="r1_rtl" value="coming" id="r1_rtl_coming"/>
+        <label for="r1_rtl_coming">Coming</label>
+        <input type="radio" name="r1_rtl" value="not_coming" id="r1_rtl_not_coming" checked="checked"/>
+        <label for="r1_rtl_not_coming">Not coming</label>
       </span>
     </div>
     <br/>
-    <div class="radio">
-      <span>Radio: </span>
+    <div class="toggle">
+      <span>Togglebar: </span>
       <span class="togglebar">
-        <span class="bar_button">All</span>
-        <span class="bar_button">Coming</span>
-        <span class="bar_button">Not coming</span>
-        <span class="bar_button">Arrived</span>
+        <input type="checkbox" name="c1_rtl" value="all" id="c1_rtl_unknown"/>
+        <label for="c1_rtl_unknown">Unknown</label>
+        <input type="checkbox" name="c1_rtl" value="coming" id="c1_rtl_coming" checked="checked"/>
+        <label for="c1_rtl_coming">Coming</label>
+        <input type="checkbox" name="c1_rtl" value="not_coming" id="c1_rtl_not_coming"/>
+        <label for="c1_rtl_not_coming">Not coming</label>
+        <input type="checkbox" name="c1_rtl" value="arrived" id="c1_rtl_arrived" checked="checked"/>
+        <label for="c1_rtl_arrived">Arrived</label>
       </span>
     </div>
-
   </div>
 </div>
 
