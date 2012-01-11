@@ -38,6 +38,10 @@ span.togglebar {
       -webkit-border-radius: 0px 5px 5px 0px;
       -moz-border-radius: 0px 5px 5px 0px;
       border-radius: 0px 5px 5px 0px; }
+    span.togglebar label.first.last {
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px; }
     span.togglebar label:hover {
       border: 1px solid #bbbbbb;
       background: #dadada;
@@ -49,7 +53,7 @@ span.togglebar {
       background-image: -o-linear-gradient(top, #ededed, #dadada);
       background-image: linear-gradient(top, #ededed, #dadada); }
     span.togglebar label.selected {
-      border: 1px solid #155678;
+      border-color: #155678;
       background: #4596ce;
       color: white;
       text-shadow: 0 -1px 1px #145072;
