@@ -2,35 +2,37 @@
 * jqToggleBar - jQuery plugin for creating styled radio and toggle bars
 *
 * Version: 0.0.1
-* Build: 38
+* Build: 40
 * Copyright 2011 Alex Tkachev
 *
 * Dual licensed under MIT or GPLv2 licenses
 *   http://en.wikipedia.org/wiki/MIT_License
 *   http://en.wikipedia.org/wiki/GNU_General_Public_License
 *
-* Date: 11 Jan 2012 17:24:25
+* Date: 16 Jan 2012 13:10:26
 */
 
 (function($) {
+  var APIKey = 'toggleBar';
 
   $.fn.toggleBar = function(options) {
     if (options == 'api') {
-      return this.data('toggleBar');
+      return this.data(APIKey);
     } else if(options == 'destroy'){
-      this.data('toggleBar').destroy();
-      this.removeData('toggleBar');
+      this.data(APIKey).destroy();
+      this.removeData(APIKey);
     } else{
       return this.each(function() {
         var $this = $(this);
         if ($.type(options) === "object") {
           var clazz = $.fn.toggleBar.classes.ToggleBar;
-          $this.data('toggleBar', new clazz($this, $.extend(true, {}, $.fn.toggleBar.defaults, clazz.defaults || {}, options, {rtl: $this.css('direction') == 'rtl'})));
+          new clazz($this, $.extend(true, {}, $.fn.toggleBar.defaults, clazz.defaults || {}, options, {rtl: $this.css('direction') == 'rtl'}));
         }
       });
     }
   };
 
+  $.fn.toggleBar.apiKey = APIKey;
   $.fn.toggleBar.classes = {};
 
   $.fn.toggleBar.defaults = {
@@ -61,8 +63,10 @@
       };
       this.items = $(options.selectors.button, this.el);
 
+      this.el.data($.fn.toggleBar.apiKey, this);
       this._initClasses();
       this._initEvents();
+      this._onInputSelectionChanged();
     },
 
     changeInputsSelection: function(func){
@@ -164,7 +168,6 @@
       var inputs = this.inputs();
       this.labelFor(inputs.first()).addClass('first');
       this.labelFor(inputs.last()).addClass('last');
-      this._onInputSelectionChanged();
     },
 
     _initEvents: function(){

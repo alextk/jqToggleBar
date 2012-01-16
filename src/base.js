@@ -1,22 +1,24 @@
 (function($) {
+  var APIKey = 'toggleBar';
 
   $.fn.toggleBar = function(options) {
     if (options == 'api') {
-      return this.data('toggleBar');
+      return this.data(APIKey);
     } else if(options == 'destroy'){
-      this.data('toggleBar').destroy();
-      this.removeData('toggleBar');
+      this.data(APIKey).destroy();
+      this.removeData(APIKey);
     } else{
       return this.each(function() {
         var $this = $(this);
         if ($.type(options) === "object") {
           var clazz = $.fn.toggleBar.classes.ToggleBar;
-          $this.data('toggleBar', new clazz($this, $.extend(true, {}, $.fn.toggleBar.defaults, clazz.defaults || {}, options, {rtl: $this.css('direction') == 'rtl'})));
+          new clazz($this, $.extend(true, {}, $.fn.toggleBar.defaults, clazz.defaults || {}, options, {rtl: $this.css('direction') == 'rtl'}));
         }
       });
     }
   };
 
+  $.fn.toggleBar.apiKey = APIKey;
   $.fn.toggleBar.classes = {};
 
   $.fn.toggleBar.defaults = {

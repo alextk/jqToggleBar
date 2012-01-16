@@ -17,8 +17,10 @@
       };
       this.items = $(options.selectors.button, this.el);
 
+      this.el.data($.fn.toggleBar.apiKey, this);
       this._initClasses();
       this._initEvents();
+      this._onInputSelectionChanged();
     },
 
     changeInputsSelection: function(func){
@@ -120,7 +122,6 @@
       var inputs = this.inputs();
       this.labelFor(inputs.first()).addClass('first');
       this.labelFor(inputs.last()).addClass('last');
-      this._onInputSelectionChanged();
     },
 
     _initEvents: function(){
